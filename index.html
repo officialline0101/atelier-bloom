@@ -288,32 +288,21 @@
         }
 
         .week-button-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 10px;
-}
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 10px;
+        }
 
-.week-button {
-    padding: 10px 20px;
-    background-color: #444444;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    transform-origin: center center;
-}
-
-.week-button:hover {
-    background-color: #583962;
-    transform: scale(1.15); /* ドーン！ってくらい拡大🔥 */
-}
-
-.week-button:active {
-    transform: scale(0.95); /* クリックした瞬間にギュッと縮む💥 */
-}
+        .week-button {
+            padding: 10px 20px;
+            background-color: #444444;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
         .month-button-container {
             display: flex;
@@ -331,15 +320,6 @@
             border-radius: 4px;
             cursor: pointer;
         }
-
-        .month-button:hover {
-    background-color: #583962;
-    transform: scale(1.15); /* ドーン！ってくらい拡大🔥 */
-}
-
-.month-button:active {
-    transform: scale(0.95); /* クリックした瞬間にギュッと縮む💥 */
-}
 
         .current-month {
             font-size: 16px;
@@ -738,8 +718,9 @@
         <div class="label" id="course">メニューをお選びください<span class="required">必須</span></div>
         <div class="info-text">※メニューを選択すると<br>空き状況のカレンダーが表示されます</div>
         <div class="menu-sections">
-            <button type="button" onclick="showMenu('male')">ハンド</button>
+            <button type="button" onclick="showMenu('male')">ジェル</button>
             <button type="button" onclick="showMenu('female')">フット</button>
+            <button type="button" onclick="showMenu('handfemale')">ハンド＆フット</button>
             <button type="button" onclick="showMenu('whitening')">オフのみ</button>
             <button type="button" onclick="showMenu('sonota')">その他メニュー</button>
         </div>
@@ -748,7 +729,7 @@
 
         <div id="male" class="menu-section">
             <div class="highlight-background">
-                <span class="highlight-text">◆ハンド◆</span>
+                <span class="highlight-text">◆ジェル◆</span>
             </div>
             <div class="symptoms">
                 <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="15000">《ハンド》ワンカラー　ケア込♪</button>
@@ -817,6 +798,37 @@
                 <button type="button" onclick="selectSymptom(this, 'treatment8')" data-price="15000">《オフのみ》新規様用ジェルオフのみ</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment9')" data-price="15000">《オフのみ》当店ジェルオフのみ</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment9')" data-price="15000">《オフのみ》他店ジェルオフのみ</button>
+            </div>
+        </div>
+
+        <div id="handfemale" class="menu-section">
+            <div class="highlight-background">
+                <span class="highlight-text">◆ハンド＆フット◆</span>
+            </div>
+            <div class="symptoms">
+                <button type="button" onclick="selectSymptom(this, 'treatment8')" data-price="15000">ハンド＆フット</button>
+            </div>
+            <div class="highlight-background">
+                <span class="highlight-text">オプション</span>
+            </div>
+            <div class="irradiations">
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">《オプション》個性派アート</button>
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">《オプション》ストーン10粒</button>
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">《オプション》ラメ/ライナーライン</button>
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">《オプション》アート1本～2本</button>
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">《新規様用》他店ジェルオフ</button>
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">《再来様用》当店ジェルオフ</button>
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">《再来様用》他店ジェルオフ</button>
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">長さだし1本</button>
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">長さだし2本</button>
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">長さだし3本</button>
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">長さだし4本</button>
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">長さだし5本</button>
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">長さだし6本</button>
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">長さだし7本</button>
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">長さだし8本</button>
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">長さだし9本</button>
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">長さだし10本</button>
             </div>
         </div>
 
@@ -899,7 +911,7 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             liff.init({
-                liffId: '2007233524-p7d3Oa3V'
+                liffId: '2005254357-zKma9BZk'
             }).then(() => {
                 console.log('LIFF初期化成功');
             }).catch((err) => {
@@ -949,6 +961,7 @@
             '《ハンド》アート4本～10本コース　ケア込♪': 115,
             '《ハンド》つけ放題コース　ケア込♪': 120,
             'メンテナンス': 90,
+            'ハンド＆フット': 120,
             '《フット》ワンカラー　ケア込♪': 60,
             '《フット》ラメグラデーション　ケア込♪': 60,
             '《フット》アート2本～6本コース　ケア込♪': 80,
@@ -1374,7 +1387,7 @@
                 return;
             }
 
-            const url = 'https://script.google.com/macros/s/AKfycbwFANnPxdIRMQl7d_w1AUIW3uy06Fl2vYZKdq4bJEk9M5POCwkGJ1XbeGeaDScP0AB6/exec' +
+            const url = 'https://script.google.com/macros/s/AKfycbwCxnJaxGZ46c3TnnesuZcD_zuxuVoSHoDHo5MxkRzChcK5vZDwBs4HstzkXO-KLyuDYA/exec' +
                 `?startTime=${startTime.toISOString()}&endTime=${endTime.toISOString()}`;
 
             try {
@@ -1445,13 +1458,15 @@
             }
 
 
-            // 現在の日時を取得
-            const now = new Date();
+// 現在の日時を取得
+const now = new Date();
+const maxDate = new Date();
+maxDate.setDate(now.getDate() + 91);
 
-            // テーブルの内容を更新
-            for (let i = 0; i < 7; i++) {
-                const day = new Date(currentDate);
-                day.setDate(day.getDate() + i);
+// テーブルの内容を更新
+for (let i = 0; i < 7; i++) {
+    const day = new Date(currentDate);
+    day.setDate(day.getDate() + i);
 
                 let businessEventTimes = []; // 営業日のイベント時間帯を記録する配列
 
@@ -1481,6 +1496,13 @@
 
                     // メニュー時間と訪問回数の時間を合計して、終了時間を設定
                     slotEnd.setMinutes(slotStart.getMinutes() + menuDuration + visitDuration + irradiationsDuration);
+
+        // ✅ 90日後以降は✕
+        if (slotStart > maxDate) {
+            cell.textContent = '✕';
+            cell.classList.add('unavailable');
+            continue;
+        }
 
                     // 終了時間が翌日 (0時以降) になる場合は✕に設定
                     if (slotEnd.getDate() !== slotStart.getDate()) {
