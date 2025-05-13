@@ -1142,31 +1142,47 @@
             // 選択された日時をリセット
             selectedFullDate = '';
 
-            // ボタンの選択状態を切り替える
-            button.classList.toggle('active');
+            // クリックしたボタンの `data-id` を取得
+            let selectedId = button.getAttribute('data-id');
 
-            // 選択されたオプションを取得
-            const updatedSelectedButtons = document.querySelectorAll('.symptoms button.active');
-
-            if (updatedSelectedButtons.length === 0) {
-                // すべてのボタンの選択が解除された場合、メニュー時間を0にリセット
-                selectedMenuTime = 0;
-                selectedSymptom = null; // 選択されたメニューをリセット
-                menuPrice = 0; // メニュー価格をリセット
-                treatmentText.style.display = 'none';
-                return; // ここで処理を終了
+            // クリックしたボタンがすでに `active` なら解除
+            if (button.classList.contains('active')) {
+                button.classList.remove('active');
             } else {
-                // 1つだけ選択状態にする
-                if (updatedSelectedButtons.length > 1) {
-                    updatedSelectedButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active'); // クリックしたボタンだけを選択
+                // すでに選択されているボタンを取得（`active` のボタン）
+                let updatedSelectedButtons = document.querySelectorAll('.symptoms button.active');
+
+                // もし選択数が3を超えたら、新しい選択をキャンセル
+                if (updatedSelectedButtons.length >= 3) {
+                    return;
                 }
 
-                // 選択されたメニューの時間を取得して保存
-                const selectedMenu = button.textContent;
-                selectedMenuTime = menuTimes[selectedMenu] || 0; // メニュー時間を取得して保存
-                selectedSymptom = [selectedMenu]; // 選択されたメニュー名を配列として保存
-                menuPrice = parseInt(button.getAttribute('data-price'), 10) || 0;  // メニューの価格を取得
+                // クリックしたボタンだけ `active` を付与
+                button.classList.add('active');
+            }
+
+            // 現在選択されているボタンを取得（もう一度更新）
+            let updatedSelectedButtons = document.querySelectorAll('.symptoms button.active');
+            const selectedMenuNameDiv = document.getElementById('selected-menu-name');
+
+            // メニュー時間と価格をリセット
+            selectedMenuTime = 0;
+            selectedSymptom = [];
+            menuPrice = 0;
+
+            if (updatedSelectedButtons.length === 0) {
+                // すべてのボタンの選択が解除された場合
+                selectedMenuTime = 0;
+                selectedSymptom = null;
+                menuPrice = 0;
+            } else {
+                // 選択された各ボタンについて処理
+                updatedSelectedButtons.forEach((btn) => {
+                    const selectedMenu = btn.textContent;
+                    selectedMenuTime += menuTimes[selectedMenu] || 0;
+                    selectedSymptom.push(selectedMenu);
+                    menuPrice += parseInt(btn.getAttribute('data-price'), 10) || 0;
+                });
             }
 
             console.log('選択されたメニューの時間:', selectedMenuTime);
@@ -1289,7 +1305,6 @@
             // 選択されたメニューセクションを表示
             document.querySelectorAll('.menu-section').forEach(section => {
                 section.classList.remove('active');
-                section.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
             });
 
             // 対応するメニューボタンを選択状態にする
