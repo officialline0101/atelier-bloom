@@ -11,7 +11,7 @@
             position: fixed; /* 画面スクロールしても固定 */
             right: -5px; /* さらに右へ */
             top: 80%; /* 画面中央に固定 */
-            transform: translateY(-50%) translateX(20px); /* 中央配置と右ずらし */
+            transform: translateY(-50%) translateX(13px); /* 中央配置と右ずらし */
             background: #7e6c86;
             display: flex;
             flex-direction: column;
@@ -173,6 +173,7 @@
         }
 
         .visit-buttons,
+        .neiru-buttons,
         .symptoms,
         .menu-sections,
         .irradiations {
@@ -183,6 +184,7 @@
         }
 
         .visit-buttons button,
+        .neiru-buttons button,
         .symptoms button,
         .menu-sections button,
         .irradiations button {
@@ -198,6 +200,7 @@
         }
 
         .visit-buttons button.active,
+        .neiru-buttons button.active,
         .symptoms button.active,
         .menu-sections button.active,
         .irradiations button.active {
@@ -708,6 +711,23 @@
         padding: 50px 10px;
         margin-top: 30px;
     }
+
+/* 初期は非表示にするクラスを定義 */
+.hidden {
+  display: none !important;
+}
+
+/* 表示スタイルの定義 */
+.visit-buttons,
+.neiru-buttons,
+.symptoms,
+.menu-sections,
+.irradiations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
     </style>
 </head>
 
@@ -735,15 +755,21 @@
             <button type="button" id="repeatVisit" onclick="selectVisit(this)">2回目以降</button>
         </div>
 
-        <div class="label" id="course">メニューをお選びください<span class="required">必須</span></div>
-        <div class="info-text">※メニューを選択すると<br>空き状況のカレンダーが表示されます</div>
-        <div class="menu-sections">
-            <button type="button" onclick="showMenu('male')">ハンド</button>
-            <button type="button" onclick="showMenu('female')">フット</button>
-            <button type="button" onclick="showMenu('handfemale')">ハンド＆フット＆オフ</button>
-            <button type="button" onclick="showMenu('whitening')">オフのみ</button>
-            <button type="button" onclick="showMenu('sonota')">その他メニュー</button>
+        <div class="label">ネイルオフあり・なし<span class="required">必須</span></div>
+        <div class="neiru-buttons">
+            <button type="button" id="firstneiru" onclick="selectneiru(this)">オフあり</button>
+            <button type="button" id="repeatneiru" onclick="selectneiru(this)">オフなし</button>
         </div>
+
+<div class="label hidden" id="course">メニューをお選びください<span class="required">必須</span></div>
+<div class="info-text hidden">※メニューを選択すると<br>空き状況のカレンダーが表示されます</div>
+<div class="menu-sections hidden">
+  <button type="button" onclick="showMenu('male')">ハンド</button>
+  <button type="button" onclick="showMenu('female')">フット</button>
+  <button type="button" onclick="showMenu('handfemale')">ハンド＆フット＆オフ</button>
+  <button type="button" onclick="showMenu('whitening')">オフのみ</button>
+  <button type="button" onclick="showMenu('sonota')">その他メニュー</button>
+</div>
 
         <div id="treatment-text" style="display: none; margin-bottom: 10px;"></div>
 
@@ -946,6 +972,7 @@
     <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script>
         let visitCount = '';
+        let neiruCount = '';
         let selectedMenu = '';
         let selectedSymptom = [];  // 配列として定義
         let selectedFullDate = '';
@@ -975,6 +1002,14 @@
         };
 
         let selectedVisitTime = 0; // 訪問回数で選択された時間
+
+        // 訪問回数ごとの時間設定 (例：初めて=20分、2回目以降=15分)
+        let neiruTimes = {
+            'オフあり': 30,
+            'オフなし': 0
+        };
+
+        let selectedNeiruTime = 0; // 訪問回数で選択された時間
 
         // 訪問回数ごとの時間設定 (例：初めて=20分、2回目以降=15分)
         let irradiationsTimes = {
@@ -1056,21 +1091,21 @@
             });
         });
 
-
         function updateDisplayInfo() {
             const name = document.getElementById('name').value;
             const visitCountText = visitCount ? `<span style="color:#13ca5e;"><strong>【ご来店回数】</strong></span><br>・${visitCount}` : '・来店回数が未選択です';
+            const neiruCountText = neiruCount ? `<span style="color:#13ca5e;"><strong>【ネイルオフあり・なし】</strong></span><br>・${neiruCount}` : '・ネイルオフあり・なしが未選択です';
             const selectedMenuText = selectedMenu ? `<span style="color:#13ca5e;"><strong>【コース】</strong></span><br>・${selectedMenu}` : '・コースが未選択です';
 
             const selectedSymptomText = selectedSymptom.length > 0
-                ? `<span style="color:#13ca5e;"><strong>【メニュー】</strong></span><br>・${selectedSymptom.join('<br>')}`
+                ? `<span style="color:#13ca5e;"><strong>【メニュー】</strong></span><br>・${selectedSymptom.join('<br>・')}`
                 : '・メニューが未選択です';
 
             const irradiationsText = irradiationsCount
                 ? `<span style="color:#13ca5e;"><strong>【オプション】</strong></span><br>・${irradiationsCount.split(', ').join('<br>・')}`
                 : '・オプション無し';
 
-            let totalMinutes = selectedMenuTime + selectedirradiationsTime + selectedVisitTime;
+            let totalMinutes = selectedMenuTime + selectedirradiationsTime + selectedVisitTime + selectedNeiruTime;
             let hours = Math.floor(totalMinutes / 60);
             let minutes = totalMinutes % 60;
             let totalTimeText = `<span style="color:#13ca5e;"><strong>【所要時間】</strong></span><br>・${hours > 0 ? hours + '時間' : ''}${minutes}分`;
@@ -1088,6 +1123,11 @@
         <div class="info-row">
             <p>${visitCountText}</p>
             <button class="edit-button" onclick="scrollToElement('firstVisit')">修正する</button>
+        </div>
+        <hr>
+        <div class="info-row">
+            <p>${neiruCountText}</p>
+            <button class="edit-button" onclick="scrollToElement('firstneiru')">修正する</button>
         </div>
         <hr>
         <div class="info-row">
@@ -1130,6 +1170,9 @@
         document.querySelectorAll('.visit-buttons button').forEach(button => {
             button.addEventListener('click', updateDisplayInfo);
         });
+        document.querySelectorAll('.neiru-buttons button').forEach(button => {
+            button.addEventListener('click', updateDisplayInfo);
+        });
         document.querySelectorAll('.menu-sections button').forEach(button => {
             button.addEventListener('click', updateDisplayInfo);
         });
@@ -1140,19 +1183,23 @@
             button.addEventListener('click', updateDisplayInfo);
         });
 
-        document.querySelectorAll('.symptoms button').forEach(button => {
-            button.addEventListener('click', () => {
-                const calendarContainer = document.querySelector('.calendar-container');
+// 「.symptoms」内のすべてのボタンに対して処理を設定
+document.querySelectorAll('.symptoms button').forEach(button => {
+    // 各ボタンにクリックイベントを追加
+    button.addEventListener('click', () => {
+        // カレンダー要素を取得
+        const calendarContainer = document.querySelector('.calendar-container');
 
-                // 選択されたメニューがあればカレンダーを表示
-                if (document.querySelectorAll('.symptoms button.active').length > 0) {
-                    calendarContainer.style.display = 'block';
-                } else {
-                    // 選択が解除された場合、カレンダーを非表示
-                    calendarContainer.style.display = 'none';
-                }
-            });
-        });
+        // 現在、activeクラスが付いている症状ボタンが1つ以上あるかを確認
+        if (document.querySelectorAll('.symptoms button.active').length > 0) {
+            // 1つ以上選択されていればカレンダーを表示
+            calendarContainer.style.display = 'block';
+        } else {
+            // どれも選択されていなければカレンダーを非表示
+            calendarContainer.style.display = 'none';
+        }
+    });
+});
 
         // 初期状態でカレンダーを非表示にする
         document.addEventListener('DOMContentLoaded', () => {
@@ -1305,6 +1352,32 @@
             fetchAvailability(currentDate);
         }
 
+function selectneiru(element) {
+  // 選択された日時をリセット
+  selectedFullDate = '';
+
+  // アクティブクラスの更新
+  document.getElementById('firstneiru').classList.remove('active');
+  document.getElementById('repeatneiru').classList.remove('active');
+  element.classList.add('active');
+
+  // 選択内容の取得
+  neiruCount = element.innerText;
+
+  // 選択されたネイル回数に対応する時間を取得
+  selectedNeiruTime = neiruTimes[neiruCount];
+
+  console.log('選択されたネイルの時間:', selectedNeiruTime);
+
+  // 表示させる項目
+  document.getElementById('course').classList.remove('hidden');
+  document.querySelector('.info-text').classList.remove('hidden');
+  document.querySelector('.menu-sections').classList.remove('hidden');
+
+  // カレンダーを更新するために取得する日付を渡す
+  fetchAvailability(currentDate);
+}
+
         function showMenu(menu) {
             // `treatment-text` を非表示にする
             document.getElementById("treatment-text").style.display = "none";
@@ -1377,6 +1450,7 @@
                 name: document.getElementById('name').value.trim(),
                 phone: document.getElementById('phone').value.trim(),
                 visitCount: visitCount,
+                neiruCount: neiruCount,
                 selectedMenu: selectedMenu,
                 selectedSymptom: selectedSymptom && selectedSymptom.length > 0 ? selectedSymptom : null, // 空の選択肢をチェック
                 irradiationsCount: irradiationsCount,
@@ -1408,7 +1482,7 @@
             // LINEトークにメッセージを送信
             liff.sendMessages([{
                 type: 'text',
-                text: `【予約フォーム】\nお名前：${formData.name}\n電話番号：${formData.phone}\nご来店回数：${formData.visitCount}\nコース：${formData.selectedMenu}\nメニュー：${formData.selectedSymptom},${formData.irradiationsCount}\n希望日時：\n ${formData.dates[0]}\nメッセージ：${formData.message}`
+                text: `【予約フォーム】\nお名前：${formData.name}\n電話番号：${formData.phone}\nご来店回数：${formData.visitCount}\nコース：${formData.selectedMenu}\nメニュー：${formData.selectedSymptom},${formData.irradiationsCount},${formData.neiruCount}\n希望日時：\n ${formData.dates[0]}\nメッセージ：${formData.message}`
             }]).then(() => {
                 /* メッセージ送信成功時の処理 */
                 alert('当日キャンセルは無いようにお願いいたします。');
@@ -1545,10 +1619,11 @@ for (let i = 0; i < 7; i++) {
                     const slotEnd = new Date(slotStart);
                     let menuDuration = selectedMenuTime || 10;
                     let visitDuration = selectedVisitTime || 0;
+                    let neiruDuration = selectedNeiruTime || 0;
                     let irradiationsDuration = selectedirradiationsTime || 0;
 
                     // メニュー時間と訪問回数の時間を合計して、終了時間を設定
-                    slotEnd.setMinutes(slotStart.getMinutes() + menuDuration + visitDuration + irradiationsDuration);
+                    slotEnd.setMinutes(slotStart.getMinutes() + menuDuration + visitDuration + neiruDuration + irradiationsDuration);
 
         // ✅ 90日後以降は✕
         if (slotStart > maxDate) {
