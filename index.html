@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,14 @@
     <style>
         /* 右端の細いナビ（固定） */
         .side-nav {
-            position: fixed; /* 画面スクロールしても固定 */
-            right: -5px; /* さらに右へ */
-            top: 80%; /* 画面中央に固定 */
-            transform: translateY(-50%) translateX(13px); /* 中央配置と右ずらし */
+            position: fixed;
+            /* 画面スクロールしても固定 */
+            right: -5px;
+            /* さらに右へ */
+            top: 80%;
+            /* 画面中央に固定 */
+            transform: translateY(-50%) translateX(13px);
+            /* 中央配置と右ずらし */
             background: #7e6c86;
             display: flex;
             flex-direction: column;
@@ -19,11 +24,13 @@
             padding: 4px;
             border-radius: 10px 0 0 10px;
             z-index: 1000;
-            width: 35px; /* さらに細く */
+            width: 35px;
+            /* さらに細く */
         }
 
         .side-nav a:active {
-            transform: scale(1.0); /* タップした後に元のサイズに戻す */
+            transform: scale(1.0);
+            /* タップした後に元のサイズに戻す */
         }
 
         .side-nav a {
@@ -44,17 +51,22 @@
         }
 
         .side-nav a span {
-            font-size: 24px; /* 矢印をさらに大きく */
+            font-size: 24px;
+            /* 矢印をさらに大きく */
             position: absolute;
-            left: -0px; /* 左端に寄せる */
-            top: 13px; /* さらに下へ */
+            left: -0px;
+            /* 左端に寄せる */
+            top: 13px;
+            /* さらに下へ */
         }
 
         /* スマホ用の微調整 */
         @media (max-width: 600px) {
             .side-nav {
-                right: 2px; /* スマホではさらに右端に */
-                width: 30px; /* もっと細く */
+                right: 2px;
+                /* スマホではさらに右端に */
+                width: 30px;
+                /* もっと細く */
             }
 
             .side-nav a {
@@ -63,10 +75,11 @@
             }
 
             .side-nav a i {
-                font-size: 12px; /* スマホではもっと小さく */
+                font-size: 12px;
+                /* スマホではもっと小さく */
             }
         }
-        
+
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #e7e7e7;
@@ -91,7 +104,7 @@
         }
 
         h1 {
-            background: linear-gradient(135deg, #7e6c86, #4a3852);
+            background: linear-gradient(135deg, #7e6c86, #44354b);
             color: white;
             padding: 20px;
             border-radius: 0 15px 0px 45px;
@@ -116,7 +129,7 @@
             font-size: 18px;
             text-align: center;
             /* 中央揃え */
-            text-indent: 20px;
+            text-indent: 40px;
             /* テキストを右に20pxずらす */
             position: relative;
             overflow: hidden;
@@ -173,7 +186,6 @@
         }
 
         .visit-buttons,
-        .neiru-buttons,
         .symptoms,
         .menu-sections,
         .irradiations {
@@ -184,7 +196,6 @@
         }
 
         .visit-buttons button,
-        .neiru-buttons button,
         .symptoms button,
         .menu-sections button,
         .irradiations button {
@@ -200,7 +211,6 @@
         }
 
         .visit-buttons button.active,
-        .neiru-buttons button.active,
         .symptoms button.active,
         .menu-sections button.active,
         .irradiations button.active {
@@ -291,32 +301,34 @@
         }
 
         .week-button-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 10px;
-}
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 10px;
+        }
 
-.week-button {
-    padding: 10px 20px;
-    background-color: #444444;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    transform-origin: center center;
-}
+        .week-button {
+            padding: 10px 20px;
+            background-color: #444444;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            transform-origin: center center;
+        }
 
-.week-button:hover {
-    background-color: #583962;
-    transform: scale(1.15); /* ドーン！ってくらい拡大🔥 */
-}
+        .week-button:hover {
+            background-color: #444444;
+            transform: scale(1.15);
+            /* ドーン！ってくらい拡大🔥 */
+        }
 
-.week-button:active {
-    transform: scale(0.95); /* クリックした瞬間にギュッと縮む💥 */
-}
+        .week-button:active {
+            transform: scale(0.95);
+            /* クリックした瞬間にギュッと縮む💥 */
+        }
 
         .month-button-container {
             display: flex;
@@ -336,13 +348,15 @@
         }
 
         .month-button:hover {
-    background-color: #583962;
-    transform: scale(1.15); /* ドーン！ってくらい拡大🔥 */
-}
+            background-color: #444444;
+            transform: scale(1.15);
+            /* ドーン！ってくらい拡大🔥 */
+        }
 
-.month-button:active {
-    transform: scale(0.95); /* クリックした瞬間にギュッと縮む💥 */
-}
+        .month-button:active {
+            transform: scale(0.95);
+            /* クリックした瞬間にギュッと縮む💥 */
+        }
 
         .current-month {
             font-size: 16px;
@@ -436,9 +450,9 @@
 
         #treatment-text {
             background-color: #eef9f5;
-            padding: 10px;
-            border-radius: 4px;
-            margin-top: 1px;
+            padding: 0px;
+            border-radius: 0px;
+            margin-top: 0px;
         }
 
         .highlight-background {
@@ -553,6 +567,14 @@
             /* オプションテキストの色 */
         }
 
+        .highlight-texthissu {
+            font-weight: bold;
+            display: inline-block;
+            color: #fff;
+            text-indent: 40px;
+            /* オプションテキストの色 */
+        }
+
         .info-row {
             display: flex;
             justify-content: space-between;
@@ -565,21 +587,24 @@
         }
 
         .edit-button {
-    background-color: #ff6b6b;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    white-space: nowrap; /* 改行を防ぐ */
-    width: 80px; /* 横幅を固定 */
-    text-align: center; /* テキストを中央揃え */
-}
+            background-color: #ff6b6b;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            white-space: nowrap;
+            /* 改行を防ぐ */
+            width: 80px;
+            /* 横幅を固定 */
+            text-align: center;
+            /* テキストを中央揃え */
+        }
 
-.edit-button:hover {
-    background-color: #ff4f4f;
-}
+        .edit-button:hover {
+            background-color: #ff4f4f;
+        }
 
 
         /* 100点の予約フォームCSS */
@@ -611,11 +636,11 @@
             width: 100%;
             padding: 15px;
             font-size: 18px;
-            background-color: #7e6c86;
+            background-color: #dc3545;
         }
 
         .submit-button:hover {
-            background-color: #7e6c86;
+            background-color: #c82333;
         }
 
         @media (max-width: 768px) {
@@ -677,57 +702,40 @@
             /* 影も控えめに */
         }
 
-    /* ナビゲーションバー */
-    .sidebar {
-        position: fixed;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        background: #1e1e2d;
-        padding: 10px;
-        border-radius: 10px 0 0 10px;
-        z-index: 1000;
-    }
+        /* ナビゲーションバー */
+        .sidebar {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #1e1e2d;
+            padding: 10px;
+            border-radius: 10px 0 0 10px;
+            z-index: 1000;
+        }
 
-    .sidebar a {
-        display: block;
-        padding: 15px;
-        color: white;
-        text-decoration: none;
-        text-align: center;
-        font-size: 14px;
-        margin-bottom: 10px;
-        background: #4a90e2;
-        border-radius: 5px;
-        transition: background 0.3s;
-    }
+        .sidebar a {
+            display: block;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 10px;
+            background: #4a90e2;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
 
-    .sidebar a:hover {
-        background: #357ac4;
-    }
+        .sidebar a:hover {
+            background: #357ac4;
+        }
 
-    /* スクロール用のセクション */
-    .section {
-        padding: 50px 10px;
-        margin-top: 30px;
-    }
-
-/* 初期は非表示にするクラスを定義 */
-.hidden {
-  display: none !important;
-}
-
-/* 表示スタイルの定義 */
-.visit-buttons,
-.neiru-buttons,
-.symptoms,
-.menu-sections,
-.irradiations {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
-}
+        /* スクロール用のセクション */
+        .section {
+            padding: 50px 10px;
+            margin-top: 30px;
+        }
     </style>
 </head>
 
@@ -755,21 +763,15 @@
             <button type="button" id="repeatVisit" onclick="selectVisit(this)">2回目以降</button>
         </div>
 
-        <div class="label">ネイルオフあり・なし<span class="required">必須</span></div>
-        <div class="neiru-buttons">
-            <button type="button" id="firstneiru" onclick="selectneiru(this)">オフあり</button>
-            <button type="button" id="repeatneiru" onclick="selectneiru(this)">オフなし</button>
+        <div class="label" id="course">メニューをお選びください<span class="required">必須</span></div>
+        <div class="info-text">※メニューを選択すると<br>空き状況のカレンダーが表示されます</div>
+        <div class="menu-sections">
+            <button type="button" onclick="showMenu('male')">ハンド</button>
+            <button type="button" onclick="showMenu('female')">フット</button>
+            <button type="button" onclick="showMenu('handfemale')">ハンド＆フット＆オフ</button>
+            <button type="button" onclick="showMenu('whitening')">オフのみ</button>
+            <button type="button" onclick="showMenu('sonota')">その他メニュー</button>
         </div>
-
-<div class="label hidden" id="course">メニューをお選びください<span class="required">必須</span></div>
-<div class="info-text hidden">※メニューを選択すると<br>空き状況のカレンダーが表示されます</div>
-<div class="menu-sections hidden">
-  <button type="button" onclick="showMenu('male')">ハンド</button>
-  <button type="button" onclick="showMenu('female')">フット</button>
-  <button type="button" onclick="showMenu('handfemale')">ハンド＆フット＆オフ</button>
-  <button type="button" onclick="showMenu('whitening')">オフのみ</button>
-  <button type="button" onclick="showMenu('sonota')">その他メニュー</button>
-</div>
 
         <div id="treatment-text" style="display: none; margin-bottom: 10px;"></div>
 
@@ -788,6 +790,20 @@
                 <button type="button" onclick="selectSymptom(this, 'treatment4')" data-category="hand" data-price="15000">メンテナンス</button>
             </div>
             <div class="highlight-background">
+                <span class="highlight-texthissu">◆オフ◆<span class="required">必須</span></span>
+            </div>
+            <div class="symptoms">
+                <button type="button" onclick="selectSymptom(this, 'treatment8')" data-category="off" data-price="15000">《オフのみ》新規様用ジェルオフのみ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">《オフのみ》当店ジェルオフのみ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">《オフのみ》他店ジェルオフのみ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">《新規様用》他店ジェルオフ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">《再来様用》【ハンド】当店ジェルオフ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">《再来様用》【ハンド】他店ジェルオフ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">《再来様用》【フット】当店ジェルオフ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">《再来様用》【フット】他店ジェルオフ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">オフなし</button>
+            </div>
+            <div class="highlight-background">
                 <span class="highlight-text">オプション</span>
             </div>
             <div class="irradiations">
@@ -795,9 +811,6 @@
                 <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">《オプション》ストーン10粒</button>
                 <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">《オプション》ラメ/ライナーライン</button>
                 <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">《オプション》アート1本～2本</button>
-                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">《新規様用》他店ジェルオフ</button>
-                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">《再来様用》【ハンド】当店ジェルオフ</button>
-                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">《再来様用》【ハンド】他店ジェルオフ</button>
                 <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">長さだし1本</button>
                 <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">長さだし2本</button>
                 <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">長さだし3本</button>
@@ -823,6 +836,20 @@
                 <button type="button" onclick="selectSymptom(this, 'treatment7')" data-category="foot" data-price="15000">フットケア（パラフィンパック込）</button>
             </div>
             <div class="highlight-background">
+                <span class="highlight-texthissu">◆オフ◆<span class="required">必須</span></span>
+            </div>
+            <div class="symptoms">
+                <button type="button" onclick="selectSymptom(this, 'treatment8')" data-category="off" data-price="15000">《オフのみ》新規様用ジェルオフのみ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">《オフのみ》当店ジェルオフのみ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">《オフのみ》他店ジェルオフのみ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">《新規様用》他店ジェルオフ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">《再来様用》【ハンド】当店ジェルオフ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">《再来様用》【ハンド】他店ジェルオフ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">《再来様用》【フット】当店ジェルオフ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">《再来様用》【フット】他店ジェルオフ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">オフなし</button>
+            </div>
+            <div class="highlight-background">
                 <span class="highlight-text">オプション</span>
             </div>
             <div class="irradiations">
@@ -830,9 +857,6 @@
                 <button type="button" id="repeatirradiations" onclick="selectirradiations(this)" data-price="15000">《オプション》ストーン10粒</button>
                 <button type="button" id="sanirradiations" onclick="selectirradiations(this)" data-price="15000">《オプション》ラメ/ライナーライン</button>
                 <button type="button" id="yonirradiations" onclick="selectirradiations(this)" data-price="15000">《オプション》アート1本～2本</button>
-                <button type="button" id="goirradiations" onclick="selectirradiations(this)" data-price="15000">《新規様用》他店ジェルオフ</button>
-                <button type="button" id="rokuirradiations" onclick="selectirradiations(this)" data-price="15000">《再来様用》【フット】当店ジェルオフ</button>
-                <button type="button" id="sitiirradiations" onclick="selectirradiations(this)" data-price="15000">《再来様用》【フット】他店ジェルオフ</button>
             </div>
         </div>
 
@@ -872,12 +896,18 @@
                 <button type="button" onclick="selectSymptom(this, 'treatment7')" data-category="foot" data-price="15000">フットケア（パラフィンパック込）</button>
             </div>
             <div class="highlight-background">
-                <span class="highlight-text">◆オフのみ◆</span>
+                <span class="highlight-texthissu">◆オフ◆<span class="required">必須</span></span>
             </div>
             <div class="symptoms">
                 <button type="button" onclick="selectSymptom(this, 'treatment8')" data-category="off" data-price="15000">《オフのみ》新規様用ジェルオフのみ</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">《オフのみ》当店ジェルオフのみ</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">《オフのみ》他店ジェルオフのみ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">《新規様用》他店ジェルオフ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">《再来様用》【ハンド】当店ジェルオフ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">《再来様用》【ハンド】他店ジェルオフ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">《再来様用》【フット】当店ジェルオフ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">《再来様用》【フット】他店ジェルオフ</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment9')" data-category="off" data-price="15000">オフなし</button>
             </div>
             <div class="highlight-background">
                 <span class="highlight-text">オプション</span>
@@ -887,11 +917,6 @@
                 <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">《オプション》ストーン10粒</button>
                 <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">《オプション》ラメ/ライナーライン</button>
                 <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">《オプション》アート1本～2本</button>
-                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">《新規様用》他店ジェルオフ</button>
-                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">《再来様用》【ハンド】当店ジェルオフ</button>
-                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">《再来様用》【ハンド】他店ジェルオフ</button>
-                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">《再来様用》【フット】当店ジェルオフ</button>
-                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">《再来様用》【フット】他店ジェルオフ</button>
                 <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">長さだし1本</button>
                 <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">長さだし2本</button>
                 <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">長さだし3本</button>
@@ -972,7 +997,6 @@
     <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script>
         let visitCount = '';
-        let neiruCount = '';
         let selectedMenu = '';
         let selectedSymptom = [];  // 配列として定義
         let selectedFullDate = '';
@@ -1002,14 +1026,6 @@
         };
 
         let selectedVisitTime = 0; // 訪問回数で選択された時間
-
-        // 訪問回数ごとの時間設定 (例：初めて=20分、2回目以降=15分)
-        let neiruTimes = {
-            'オフあり': 30,
-            'オフなし': 0
-        };
-
-        let selectedNeiruTime = 0; // 訪問回数で選択された時間
 
         // 訪問回数ごとの時間設定 (例：初めて=20分、2回目以降=15分)
         let irradiationsTimes = {
@@ -1045,6 +1061,11 @@
             '《ハンド》アート4本～10本コース　ケア込♪': 115,
             '《ハンド》つけ放題コース　ケア込♪': 120,
             'メンテナンス': 90,
+            '《新規様用》他店ジェルオフ': 30,
+            '《再来様用》【ハンド】当店ジェルオフ': 30,
+            '《再来様用》【ハンド】他店ジェルオフ': 30,
+            '《再来様用》【フット】当店ジェルオフ': 30,
+            '《再来様用》【フット】他店ジェルオフ': 30,
             'ハンド＆フット': 120,
             '《フット》ワンカラー　ケア込♪': 60,
             '《フット》ラメグラデーション　ケア込♪': 60,
@@ -1056,6 +1077,7 @@
             '《オフのみ》他店ジェルオフのみ': 60,
             'パラフィンパック（ハンド）': 15,
             'ネイルケア（ハンド、ドライケア）': 50,
+            'オフなし': 0,
             'パラフィンパック(フット)': 15
         };
 
@@ -1091,10 +1113,10 @@
             });
         });
 
+
         function updateDisplayInfo() {
             const name = document.getElementById('name').value;
             const visitCountText = visitCount ? `<span style="color:#13ca5e;"><strong>【ご来店回数】</strong></span><br>・${visitCount}` : '・来店回数が未選択です';
-            const neiruCountText = neiruCount ? `<span style="color:#13ca5e;"><strong>【ネイルオフあり・なし】</strong></span><br>・${neiruCount}` : '・ネイルオフあり・なしが未選択です';
             const selectedMenuText = selectedMenu ? `<span style="color:#13ca5e;"><strong>【コース】</strong></span><br>・${selectedMenu}` : '・コースが未選択です';
 
             const selectedSymptomText = selectedSymptom.length > 0
@@ -1105,7 +1127,7 @@
                 ? `<span style="color:#13ca5e;"><strong>【オプション】</strong></span><br>・${irradiationsCount.split(', ').join('<br>・')}`
                 : '・オプション無し';
 
-            let totalMinutes = selectedMenuTime + selectedirradiationsTime + selectedVisitTime + selectedNeiruTime;
+            let totalMinutes = selectedMenuTime + selectedirradiationsTime + selectedVisitTime;
             let hours = Math.floor(totalMinutes / 60);
             let minutes = totalMinutes % 60;
             let totalTimeText = `<span style="color:#13ca5e;"><strong>【所要時間】</strong></span><br>・${hours > 0 ? hours + '時間' : ''}${minutes}分`;
@@ -1126,18 +1148,13 @@
         </div>
         <hr>
         <div class="info-row">
-            <p>${neiruCountText}</p>
-            <button class="edit-button" onclick="scrollToElement('firstneiru')">修正する</button>
-        </div>
-        <hr>
-        <div class="info-row">
             <p>${selectedMenuText}</p>
             <button class="edit-button" onclick="scrollToElement('course')">修正する</button>
         </div>
         <hr>
         <div class="info-row">
             <p>${selectedSymptomText}</p>
-            <button class="edit-button" onclick="scrollToElement('male'); scrollToElement('female'); scrollToElement('whitening');">修正する</button>
+            <button class="edit-button" onclick="scrollToElement('male'); scrollToElement('female'); scrollToElement('handfemale'); scrollToElement('whitening'); scrollToElement('sonota');">修正する</button>
         </div>
         <hr>
         <div class="info-row">
@@ -1170,9 +1187,6 @@
         document.querySelectorAll('.visit-buttons button').forEach(button => {
             button.addEventListener('click', updateDisplayInfo);
         });
-        document.querySelectorAll('.neiru-buttons button').forEach(button => {
-            button.addEventListener('click', updateDisplayInfo);
-        });
         document.querySelectorAll('.menu-sections button').forEach(button => {
             button.addEventListener('click', updateDisplayInfo);
         });
@@ -1183,23 +1197,19 @@
             button.addEventListener('click', updateDisplayInfo);
         });
 
-// 「.symptoms」内のすべてのボタンに対して処理を設定
-document.querySelectorAll('.symptoms button').forEach(button => {
-    // 各ボタンにクリックイベントを追加
-    button.addEventListener('click', () => {
-        // カレンダー要素を取得
-        const calendarContainer = document.querySelector('.calendar-container');
+        document.querySelectorAll('.symptoms button').forEach(button => {
+            button.addEventListener('click', () => {
+                const calendarContainer = document.querySelector('.calendar-container');
 
-        // 現在、activeクラスが付いている症状ボタンが1つ以上あるかを確認
-        if (document.querySelectorAll('.symptoms button.active').length > 0) {
-            // 1つ以上選択されていればカレンダーを表示
-            calendarContainer.style.display = 'block';
-        } else {
-            // どれも選択されていなければカレンダーを非表示
-            calendarContainer.style.display = 'none';
-        }
-    });
-});
+                // 選択されたメニューがあればカレンダーを表示
+                if (document.querySelectorAll('.symptoms button.active').length > 0) {
+                    calendarContainer.style.display = 'block';
+                } else {
+                    // 選択が解除された場合、カレンダーを非表示
+                    calendarContainer.style.display = 'none';
+                }
+            });
+        });
 
         // 初期状態でカレンダーを非表示にする
         document.addEventListener('DOMContentLoaded', () => {
@@ -1255,23 +1265,23 @@ document.querySelectorAll('.symptoms button').forEach(button => {
             // カレンダーを更新するために取得する日付を渡す
             fetchAvailability(currentDate);
 
-            if (treatmentId === 'treatment1') {
+            if (treatmentId === 'treatment111') {
                 treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：90分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：6,500円<br>初診料：＋2,200円</strong></div>`;
-            } else if (treatmentId === 'treatment2') {
+            } else if (treatmentId === 'treatment211') {
                 treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：4,500円<br>初診料：＋2,200円</strong></div>`;
-            } else if (treatmentId === 'treatment3') {
+            } else if (treatmentId === 'treatment311') {
                 treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：120分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：8,700円<br>初診料：＋2,200円</strong></div>`;
-            } else if (treatmentId === 'treatment4') {
+            } else if (treatmentId === 'treatment411') {
                 treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：30分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：1,700円<br>初診料：＋2,200円</strong></div>`;
-            } else if (treatmentId === 'treatment5') {
+            } else if (treatmentId === 'treatment511') {
                 treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：60分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：6,500円</strong></div>`;
-            } else if (treatmentId === 'treatment6') {
+            } else if (treatmentId === 'treatment611') {
                 treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：30分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：4,500円</strong></div>`;
-            } else if (treatmentId === 'treatment7') {
+            } else if (treatmentId === 'treatment711') {
                 treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：90分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：8,700円</strong></div>`;
-            } else if (treatmentId === 'treatment8') {
+            } else if (treatmentId === 'treatment811') {
                 treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：15分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：1,700円</strong></div>`;
-            } else if (treatmentId === 'treatment9') {
+            } else if (treatmentId === 'treatment911') {
                 treatmentText.innerHTML = `<div style="text-align: left;"><strong>所要時間：15分</strong><br>※症状によりお時間が前後する場合がございます</div><div style="text-align: right;"><strong>料金：1,700円</strong></div>`;
             } else {
                 treatmentText.innerHTML = '';
@@ -1352,32 +1362,6 @@ document.querySelectorAll('.symptoms button').forEach(button => {
             fetchAvailability(currentDate);
         }
 
-function selectneiru(element) {
-  // 選択された日時をリセット
-  selectedFullDate = '';
-
-  // アクティブクラスの更新
-  document.getElementById('firstneiru').classList.remove('active');
-  document.getElementById('repeatneiru').classList.remove('active');
-  element.classList.add('active');
-
-  // 選択内容の取得
-  neiruCount = element.innerText;
-
-  // 選択されたネイル回数に対応する時間を取得
-  selectedNeiruTime = neiruTimes[neiruCount];
-
-  console.log('選択されたネイルの時間:', selectedNeiruTime);
-
-  // 表示させる項目
-  document.getElementById('course').classList.remove('hidden');
-  document.querySelector('.info-text').classList.remove('hidden');
-  document.querySelector('.menu-sections').classList.remove('hidden');
-
-  // カレンダーを更新するために取得する日付を渡す
-  fetchAvailability(currentDate);
-}
-
         function showMenu(menu) {
             // `treatment-text` を非表示にする
             document.getElementById("treatment-text").style.display = "none";
@@ -1396,6 +1380,7 @@ function selectneiru(element) {
             // 選択されたメニューセクションを表示
             document.querySelectorAll('.menu-section').forEach(section => {
                 section.classList.remove('active');
+                section.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
             });
 
             // 対応するメニューボタンを選択状態にする
@@ -1450,7 +1435,6 @@ function selectneiru(element) {
                 name: document.getElementById('name').value.trim(),
                 phone: document.getElementById('phone').value.trim(),
                 visitCount: visitCount,
-                neiruCount: neiruCount,
                 selectedMenu: selectedMenu,
                 selectedSymptom: selectedSymptom && selectedSymptom.length > 0 ? selectedSymptom : null, // 空の選択肢をチェック
                 irradiationsCount: irradiationsCount,
@@ -1482,7 +1466,7 @@ function selectneiru(element) {
             // LINEトークにメッセージを送信
             liff.sendMessages([{
                 type: 'text',
-                text: `【予約フォーム】\nお名前：${formData.name}\n電話番号：${formData.phone}\nご来店回数：${formData.visitCount}\nコース：${formData.selectedMenu}\nメニュー：${formData.selectedSymptom},${formData.irradiationsCount},${formData.neiruCount}\n希望日時：\n ${formData.dates[0]}\nメッセージ：${formData.message}`
+                text: `【予約フォーム】\nお名前：${formData.name}\n電話番号：${formData.phone}\nご来店回数：${formData.visitCount}\nコース：${formData.selectedMenu}\nメニュー：${formData.selectedSymptom},${formData.irradiationsCount}\n希望日時：\n ${formData.dates[0]}\nメッセージ：${formData.message}`
             }]).then(() => {
                 /* メッセージ送信成功時の処理 */
                 alert('当日キャンセルは無いようにお願いいたします。');
@@ -1584,7 +1568,6 @@ function selectneiru(element) {
                 }
             }
 
-
 // 現在の日時を取得
 const now = new Date();
 const maxDate = new Date();
@@ -1619,11 +1602,10 @@ for (let i = 0; i < 7; i++) {
                     const slotEnd = new Date(slotStart);
                     let menuDuration = selectedMenuTime || 10;
                     let visitDuration = selectedVisitTime || 0;
-                    let neiruDuration = selectedNeiruTime || 0;
                     let irradiationsDuration = selectedirradiationsTime || 0;
 
                     // メニュー時間と訪問回数の時間を合計して、終了時間を設定
-                    slotEnd.setMinutes(slotStart.getMinutes() + menuDuration + visitDuration + neiruDuration + irradiationsDuration);
+                    slotEnd.setMinutes(slotStart.getMinutes() + menuDuration + visitDuration + irradiationsDuration);
 
         // ✅ 90日後以降は✕
         if (slotStart > maxDate) {
